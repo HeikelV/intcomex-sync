@@ -57,7 +57,7 @@ class Intcomex_Sync_Public {
 		add_filter( 'woocommerce_product_query_meta_query', array($this, 'filter_products_with_custom_field'), 10, 2 );
 	}
 
-	function filter_products_with_custom_field( $meta_query, $query ) {
+	public function filter_products_with_custom_field( $meta_query, $query ) {
 		$meta_key = 'marca'; // <= Here define the meta key
 
 		if ( ! is_admin() && isset( $_GET[ $meta_key ] ) && ! empty( $_GET[ $meta_key ] ) ) {
@@ -70,7 +70,7 @@ class Intcomex_Sync_Public {
 		return $meta_query;
 	}
 
-	function woocommerce_custom_fields_display() {
+	public function woocommerce_custom_fields_display() {
 		global $post;
 		$product                               = wc_get_product( $post->ID );
 		$custom_fields_woocommerce_logo        = $product->get_meta( 'logo_marca' );
