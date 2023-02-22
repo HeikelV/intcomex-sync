@@ -1,0 +1,59 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+
+.file-info {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    /*margin: 20px 0;*/
+    /*padding: 10px;*/
+    background-color: #f2f2f2;
+}
+
+.file-info h3 {
+    margin-right: 10px;
+    /*font-size: 20px;*/
+}
+
+.file-info p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.file-info h3::before {
+    content: "\f1c3";
+    font-family: "Font Awesome 5 Free";
+    font-size: 30px;
+    margin-right: 10px;
+    color: #333;
+}
+
+.file-info a{
+    text-decoration: none;
+}
+
+#progress_bar {
+    width: 500px;
+    height: 20px;
+    border: 1px solid black;
+}
+
+#progress {
+    width: 0;
+    height: 100%;
+    background-color: green;
+    transition: width 0.5s ease;
+}
+
+.force {
+    text-align: center;
+    vertical-align: middle;
+}
