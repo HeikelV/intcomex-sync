@@ -633,7 +633,7 @@ class Intcomex_Sync_Admin {
 
 	}
 
-	function intcomex_product_custom_fields() {
+	public function intcomex_product_custom_fields() {
 		echo ' <div class=" product_custom_field " > ';
 		woocommerce_wp_text_input( array(
 			'id'                => 'marca',
@@ -657,7 +657,7 @@ class Intcomex_Sync_Admin {
 	 *
 	 * @return array
 	 */
-	function agregar_columnas_productos( $columns ): array {
+	public function agregar_columnas_productos( $columns ): array {
 		unset( $columns['product_tag'] );
 		$columns['edited_date']  = __( 'Edited date', 'woocommerce' );
 		$columns['numero_parte'] = 'Número de parte';
@@ -666,7 +666,7 @@ class Intcomex_Sync_Admin {
 		return ( $columns );
 	}
 
-	function mostrar_datos_columnas_productos( $column, $postid ) {
+	public function mostrar_datos_columnas_productos( $column, $postid ) {
 		global $post;
 		// Get product object
 		$product = wc_get_product( $postid );
@@ -713,7 +713,7 @@ class Intcomex_Sync_Admin {
 	 *
 	 * @return void
 	 */
-	function insertCategoryIfNotExits( $cat, $subcat ): void {
+	public function insertCategoryIfNotExits( $cat, $subcat ): void {
 		//insert Category if not exits
 		if ( ! term_exists( $cat ) ) {
 			wp_insert_term( $cat, 'product_cat', array(
@@ -736,7 +736,7 @@ class Intcomex_Sync_Admin {
 	}
 
 	//TODO: refactorizar esta función
-	function setProductImages( $product_id, $image_urls ) {
+	public function setProductImages( $product_id, $image_urls ) {
 
 		$gallery_images = array();
 
@@ -1047,7 +1047,7 @@ class Intcomex_Sync_Admin {
 		return str_replace( 'https', 'http', $image_url );
 	}
 
-	function getCatalog() {
+	public function getCatalog() {
 		$Cla            = new CurlRequest();
 		$Cla->apiKey    = $this->api_key;
 		$Cla->accessKey = $this->access_key;
@@ -1056,7 +1056,7 @@ class Intcomex_Sync_Admin {
 		return $Cla->getRequest();
 	}
 
-	function DownloadExtendedCatalog() {
+	public function DownloadExtendedCatalog() {
 		$Cla            = new CurlRequest();
 		$Cla->apiKey    = $this->api_key;
 		$Cla->accessKey = $this->access_key;
@@ -1065,7 +1065,7 @@ class Intcomex_Sync_Admin {
 		return $Cla->getRequest();
 	}
 
-	function GetPriceList() {
+	public function GetPriceList() {
 		$Cla            = new CurlRequest();
 		$Cla->apiKey    = $this->api_key;
 		$Cla->accessKey = $this->access_key;
@@ -1075,7 +1075,7 @@ class Intcomex_Sync_Admin {
 	}
 
 
-	function GetProductStock( $sku ) {
+	public function GetProductStock( $sku ) {
 		$Cla            = new CurlRequest();
 		$Cla->apiKey    = $this->api_key;
 		$Cla->accessKey = $this->access_key;
@@ -1085,7 +1085,7 @@ class Intcomex_Sync_Admin {
 		return $Cla->getRequest();
 	}
 
-	function GetInventory() {
+	public function GetInventory() {
 		$Cla            = new CurlRequest();
 		$Cla->apiKey    = $this->api_key;
 		$Cla->accessKey = $this->access_key;
